@@ -8,6 +8,7 @@ import {
   Dimensions,
   ImageBackground,
   TouchableOpacity,
+  Button,
 } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 
@@ -31,16 +32,23 @@ const Welcome = () => {
   return (
     <>
       <View style={{ flex: 1, backgroundColor: "black", alignItems: "center" }}>
-        <Text
+        <View
           style={{
             color: "white",
             fontSize: 32,
-            marginTop: 50,
+            marginTop: 100,
             marginBottom: 25,
+            width: 200,
           }}
         >
-          Nature locality
-        </Text>
+          <Button
+            onPress={() => {
+              alert("Click");
+            }}
+            title="Udji u aplikaciju"
+            color="#841584"
+          />
+        </View>
 
         <View style={{ flex: 1, marginTop: 20 }}>
           <Carousel
@@ -49,12 +57,14 @@ const Welcome = () => {
               <Image
                 key={index}
                 style={{ width: "100%", height: "100%" }}
-                resizeMode="contain"
+                resizeMode="center"
                 source={item.image}
               />
             )}
             sliderWidth={width}
             itemWidth={width}
+            autoplay={true}
+            autoplayInterval={2000}
           />
         </View>
       </View>
@@ -66,9 +76,10 @@ const Welcome = () => {
           backgroundColor: "black",
         }}
       >
-        <Text style={{ color: "white" }}>Button1</Text>
-        <Text style={{ color: "white" }}>Button1</Text>
-        <Text style={{ color: "white" }}>Button1</Text>
+        <Text style={{ color: "white" }}>Str1</Text>
+        <Text style={{ color: "white" }}>Str2</Text>
+        <Text style={{ color: "white" }}>Str3</Text>
+        <Text style={{ color: "white" }}>Str4</Text>
       </View>
     </>
   );

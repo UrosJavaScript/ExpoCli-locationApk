@@ -15,7 +15,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Welcome">
           <Stack.Screen
-            name="Upoznaj Zlatibor"
+            name="Dodji na Zlatibor"
             component={Welcome}
             options={{
               headerStyle: {
@@ -35,7 +35,6 @@ export default function App() {
               ),
             }}
           />
-          <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
       <Test />
