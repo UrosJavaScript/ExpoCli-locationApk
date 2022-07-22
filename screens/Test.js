@@ -1,14 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const Home = ({ route }) => {
-  const { item } = route.params;
-
+const Test = () => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>Home Delivery address: </Text>
-        <Text style={styles.text}>{item}</Text>
+        <Text style={styles.title}>TEST Component</Text>
       </View>
     </View>
   );
@@ -16,8 +13,7 @@ const Home = ({ route }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#070707",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -28,7 +24,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: "700",
-    color: "#FD0139",
+    color: "red",
     paddingBottom: 10,
   },
   text: {
@@ -38,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Test;
