@@ -49,7 +49,7 @@ const Welcome = () => {
               fontSize: 25,
             }}
           >
-            ZLATIBOR ZOOM
+            ZLATIBOR zOOm
           </Text>
           <TextInput
             placeholder="Udji u aplikaciju"
