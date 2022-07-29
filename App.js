@@ -12,7 +12,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <>
-      <NavigationContainer>
+      <Welcome />
+      {/* <NavigationContainer>
         <Stack.Navigator initialRouteName="Welcome">
           <Stack.Screen
             name="Dodji na Zlatibor"
@@ -36,8 +37,8 @@ export default function App() {
             }}
           />
         </Stack.Navigator>
-      </NavigationContainer>
-      <Test />
+      </NavigationContainer> */}
+      {/* <Test /> */}
     </>
   );
 }
