@@ -51,6 +51,7 @@ const Welcome = () => {
           >
             ZLATIBOR zOOm
           </Text>
+          <Text>Testtttt</Text>
           <TextInput
             placeholder="Udji u aplikaciju"
             style={
