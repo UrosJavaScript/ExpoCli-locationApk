@@ -4,7 +4,7 @@ import React from "react";
 const TestGrana = () => {
   return (
     <View>
-      <Text>TestGrana</Text>
+      <Text>TestGrana-2</Text>
     </View>
   );
 };
