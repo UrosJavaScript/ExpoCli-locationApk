@@ -49,7 +49,7 @@ const Welcome = () => {
           itemWidth={width}
           sliderHeight={height}
           autoplay={true}
-          autoplayInterval={3000}
+          autoplayInterval={5000}
           bounces={false}
           loop={true}
 
