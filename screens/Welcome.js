@@ -6,24 +6,35 @@ import {
   Pressable
 } from "react-native";
 
+import firebase from "firebase/compat/app";
+import 'firebase/compat/storage';
+
 import Swiper from 'react-native-swiper';
 import styles from '../styles/WelcomeS';
 
-const IMAGES = {
-  image1: require("../assets/zl-nature2.jpeg"),
-  image2: require("../assets/zl-nature.jpeg"),
-  image3: require("../assets/zlatibor-bg.jpeg"),
+
+const firebaseConfig = {
+  //enter your fire base config details
 };
 
 
 const Welcome = () => {
+  // Initialize Firebase
 
-  const [img, setImg] = useState([
-    { id: "1", image: IMAGES.image1 },
-    { id: "2", image: IMAGES.image2 },
-    { id: "3", image: IMAGES.image3 },
-  ]);
+  const [img, setImg] = useState([]);
 
+  useEffect(() => {
+    const getImages = async () => {
+      const imageRefs = await firebase.storage().ref().child('images/').listAll();
+      const urls = await Promise.all(imageRefs.items.map((ref) => ref.getDownloadURL()));
+      setImg(urls);
+      console.log(urls);
+
+    }
+    getImages();
+  }, [])
+
+  firebase.initializeApp(firebaseConfig);
 
   return (
     <>
@@ -35,8 +46,8 @@ const Welcome = () => {
             dot={<View />}
             activeDot={<View />}
           >
-            {img.map(item => (
-              <Image style={styles.backgroundImage} key={item.id} source={item.image} />
+            {img.map((item, index) => (
+              <Image style={styles.backgroundImage} key={index} source={{ uri: item }} />
             ))}
 
           </Swiper>
