@@ -11,12 +11,12 @@ import {
   Button,
   TextInput,
 } from "react-native";
-import Carousel, { Pagination } from "react-native-snap-carousel";
+// import Carousel, { Pagination } from "react-native-snap-carousel";
 
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
-const SPACING = 10;
-const THUMB_SIZE = 80;
+// const SPACING = 10;
+// const THUMB_SIZE = 80;
 
 const IMAGES = {
   image1: require("../assets/zl-nature2.jpeg"),
