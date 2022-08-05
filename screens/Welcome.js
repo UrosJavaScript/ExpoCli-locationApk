@@ -46,7 +46,7 @@ const Welcome = () => {
               alignSelf: "center",
 
               color: "white",
-              fontSize: 25,
+              fontSize: 16,
             }}
           >
             ZLATIBOR zOOm

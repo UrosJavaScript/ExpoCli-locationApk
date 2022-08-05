@@ -1,5 +1,4 @@
-import { Dimensions } from "react-native";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 const { height } = Dimensions.get("window").height;
 
@@ -8,11 +7,11 @@ export const StyleScreenAnim = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#000080",
+    backgroundColor: "#073B4C",
     height: height,
   },
   Heading1: {
-    color: "#ffffff",
+    color: "#FFD166",
     fontSize: 25,
     textAlign: "center",
     textTransform: "uppercase",
