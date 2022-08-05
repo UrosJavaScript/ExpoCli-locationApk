@@ -1,11 +1,11 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 const { width } = Dimensions.get("window");
-const { height } = Dimensions.get("window");
+
 
 export default styles = StyleSheet.create({
     carouselContainer: {
-        flex:1
+        flex: 1
     },
     backgroundImage: {
         height: '100%',

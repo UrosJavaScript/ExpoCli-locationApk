@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     const getImages = async () => {
-      const imageRefs = await firebase.storage().ref().child('images/').listAll();
+      const imageRefs = await firebase.storage().ref().child('homePageImages/').listAll();
       const urls = await Promise.all(imageRefs.items.map((ref) => ref.getDownloadURL()));
       setImg(urls);
     }
