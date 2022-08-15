@@ -8,16 +8,11 @@ import Welcome from "./screens/Welcome";
 
 import ScreenAnim from "./src/views/screenAnim";
 
-// import Home from "./screens/Home";
-// import Test from "./screens/Test";
-
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <>
-      {/* <ScreenAnim /> */}
-      {/* <Welcome /> */}
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="ScreenAnim"

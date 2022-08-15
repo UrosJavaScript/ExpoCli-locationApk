@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import LottieView from "lottie-react-native";
 import { useNavigation, CommonActions } from "@react-navigation/native";
 
 import { StyleScreenAnim } from "../../styles/screenAnim";
+import logo from "../../../assets/test_logo.jpeg";
 
 const ScreenAnim = () => {
   let animation = React.createRef();
@@ -24,6 +25,10 @@ const ScreenAnim = () => {
   return (
     <>
       <View style={[StyleScreenAnim.Container]}>
+        {/* <Image
+          source={logo}
+          style={{ width: 130, height: 80, marginBottom: 10 }}
+        /> */}
         <LottieView
           ref={animation}
           loop={false}

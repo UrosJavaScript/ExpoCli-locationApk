@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import * as React from "react";
+
 import {
   StyleSheet,
   Text,
@@ -11,29 +12,86 @@ import {
   Button,
   TextInput,
 } from "react-native";
-// import Carousel, { Pagination } from "react-native-snap-carousel";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
-// const SPACING = 10;
-// const THUMB_SIZE = 80;
 
-const IMAGES = {
-  image1: require("../assets/zl-nature2.jpeg"),
-  image2: require("../assets/zl-nature.jpeg"),
-  image3: require("../assets/zlatibor-bg.jpeg"),
-};
+function MapeScreen() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#073B4C",
+      }}
+    >
+      <Text
+        style={{
+          color: "#FFD166",
+          fontSize: 25,
+          padding: 25,
+          letterSpacing: 3,
+        }}
+      >
+        Dozivi Zlatibor na pravi nacin i udahni vazduh na svojoj lokaciji!
+      </Text>
+    </View>
+  );
+}
+
+function ChatScreen() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#073B4C",
+      }}
+    >
+      <Text style={{ color: "#FFD166", fontSize: 25, padding: 10 }}>
+        Ako se izgubis u zlatiborskoj divljini ili imas pitanja pisi nam putem
+        cheta!
+      </Text>
+    </View>
+  );
+}
+
+function AlbumScreen() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#073B4C",
+      }}
+    >
+      <Text style={{ color: "#FFD166", fontSize: 25, padding: 10 }}>
+        Slikaj prirodni prizor i automatski kreiraj svoju uspomenu na ovoj
+        strani!
+      </Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
 
 const Welcome = () => {
-  const [img, setImg] = useState([
-    { id: "1", image: IMAGES.image1 },
-    { id: "2", image: IMAGES.image2 },
-    { id: "3", image: IMAGES.image3 },
-  ]);
-
   return (
     <>
-      <View>
+      <Tab.Navigator
+        initialRouteName="MapeScreen"
+        screenOptions={{ headerShown: false }}
+      >
+        <Tab.Screen name="Mape" component={MapeScreen} />
+        <Tab.Screen name="Chat" component={ChatScreen} />
+        <Tab.Screen name="Album" component={AlbumScreen} />
+      </Tab.Navigator>
+
+      {/* <View>
         <ImageBackground
           source={{
             uri: "https://zlatibor-booking.com/staro_selo1.1792ea88ceb94bd8ac32.jpeg",
@@ -51,7 +109,6 @@ const Welcome = () => {
           >
             ZLATIBOR zOOm
           </Text>
-          <Text>Testtttt</Text>
           <TextInput
             placeholder="Udji u aplikaciju"
             style={
@@ -65,62 +122,9 @@ const Welcome = () => {
             }
           />
         </ImageBackground>
-      </View>
-
-      {/* <View style={{ flex: 1, backgroundColor: "black", alignItems: "center" }}>
-        <View>
-          <Carousel
-            data={img}
-            renderItem={({ item, index }) => (
-              <Image
-                key={index}
-                style={{ width: "100%", height: "100%" }}
-                resizeMode="center"
-                source={item.image}
-              />
-            )}
-            sliderWidth={width}
-            itemWidth={width}
-            sliderHeight={height}
-            autoplay={true}
-            autoplayInterval={2000}
-          />
-
-          <View
-            style={{
-              color: "white",
-              fontSize: 32,
-              marginTop: 100,
-              marginBottom: 25,
-              width: 200,
-            }}
-          >
-            <Button
-              onPress={() => {
-                alert("Click");
-              }}
-              title="Udji u aplikaciju"
-              color="#841584"
-            />
-          </View>
-
-          <View style={{ flex: 1, marginTop: 20 }}>
-            <Text style={{ color: "white" }}>Text</Text>
-          </View>
-        </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-around",
-            backgroundColor: "black",
-          }}
-        >
-          <Text style={{ color: "white" }}>2222</Text>
-          <Text style={{ color: "white" }}>Str2</Text>
-          <Text style={{ color: "white" }}>Str3</Text>
-          <Text style={{ color: "white" }}>Str4</Text>
-        </View>
+        <>
+         
+        </>
       </View> */}
     </>
   );
