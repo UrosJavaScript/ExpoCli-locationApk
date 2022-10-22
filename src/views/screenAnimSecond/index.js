@@ -5,7 +5,7 @@ import { useNavigation, CommonActions } from "@react-navigation/native";
 
 import { StyleScreenAnim } from "../../styles/screenAnim";
 
-const ScreenAnim = () => {
+const ScreenAnimSecond = () => {
   let animation = React.createRef();
   const navigation = useNavigation();
 
@@ -14,8 +14,8 @@ const ScreenAnim = () => {
     setTimeout(() => {
       navigation.dispatch(
         CommonActions.reset({
-          index: 0,
-          routes: [{ name: "OnBoarding" }],
+          index: 1,
+          routes: [{ name: "LoginScreen" }],
         })
       );
     }, 2500);
@@ -24,18 +24,11 @@ const ScreenAnim = () => {
   return (
     <>
       <View style={[StyleScreenAnim.Container]}>
-        {/* <Image
-          source={logo}
-          style={{ width: 130, height: 80, marginBottom: 10 }}
-        /> */}
         <LottieView
           ref={animation}
           loop={false}
           source={require("../../../assets/location-pin.json")}
           speed={0.5}
-          // onAnimationFinish={(e) => {
-          //   console.log("evo", e);
-          // }}
         />
         <Text style={[StyleScreenAnim.Heading1]}>ZOOM</Text>
       </View>
@@ -43,4 +36,4 @@ const ScreenAnim = () => {
   );
 };
 
-export default ScreenAnim;
+export default ScreenAnimSecond;

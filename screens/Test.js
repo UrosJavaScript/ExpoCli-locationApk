@@ -13,12 +13,12 @@ const Test = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    flex: 1,
+    backgroundColor: "#073B4C",
     alignItems: "center",
     justifyContent: "center",
   },
   contentContainer: {
-    paddingHorizontal: 20,
     alignItems: "center",
   },
   title: {

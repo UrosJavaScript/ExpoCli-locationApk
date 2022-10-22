@@ -13,33 +13,14 @@ import {
   TextInput,
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
+import Map from "../src/views/screenMap";
+import LocationView from "../src/views/screenLocation";
+import TestView from "../screens/Test";
 
 const { width } = Dimensions.get("window");
 const { height } = Dimensions.get("window");
-
-function MapeScreen() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#073B4C",
-      }}
-    >
-      <Text
-        style={{
-          color: "#FFD166",
-          fontSize: 25,
-          padding: 25,
-          letterSpacing: 3,
-        }}
-      >
-        Dozivi Zlatibor na pravi nacin i udahni vazduh na svojoj lokaciji!
-      </Text>
-    </View>
-  );
-}
 
 function ChatScreen() {
   return (
@@ -59,23 +40,23 @@ function ChatScreen() {
   );
 }
 
-function AlbumScreen() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#073B4C",
-      }}
-    >
-      <Text style={{ color: "#FFD166", fontSize: 25, padding: 10 }}>
-        Slikaj prirodni prizor i automatski kreiraj svoju uspomenu na ovoj
-        strani!
-      </Text>
-    </View>
-  );
-}
+// function AlbumScreen() {
+//   return (
+//     <View
+//       style={{
+//         flex: 1,
+//         justifyContent: "center",
+//         alignItems: "center",
+//         backgroundColor: "#073B4C",
+//       }}
+//     >
+//       <Text style={{ color: "#FFD166", fontSize: 25, padding: 10 }}>
+//         Slikaj prirodni prizor i automatski kreiraj svoju uspomenu na ovoj
+//         strani!
+//       </Text>
+//     </View>
+//   );
+// }
 
 const Tab = createBottomTabNavigator();
 
@@ -83,12 +64,22 @@ const Welcome = () => {
   return (
     <>
       <Tab.Navigator
-        initialRouteName="MapeScreen"
+        initialRouteName="Map"
         screenOptions={{ headerShown: false }}
       >
-        <Tab.Screen name="Mape" component={MapeScreen} />
+        <Tab.Screen
+          name="Map"
+          component={Map}
+          options={{
+            tabBarLabel: "Home",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen name="LocationView" component={LocationView} />
+        <Tab.Screen name="TestView" component={TestView} />
         <Tab.Screen name="Chat" component={ChatScreen} />
-        <Tab.Screen name="Album" component={AlbumScreen} />
       </Tab.Navigator>
 
       {/* <View>

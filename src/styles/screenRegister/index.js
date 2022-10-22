@@ -1,20 +1,25 @@
 import { Dimensions, StyleSheet } from "react-native";
 
-const { heightWindow } = Dimensions.get("window").height;
+const { height } = Dimensions.get("window").height;
 
-export const StyleScreenAnim = StyleSheet.create({
+export const StyleScreenRegister = StyleSheet.create({
   Container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#073B4C",
-    height: heightWindow,
+    height: height,
   },
   Heading1: {
     color: "#FFD166",
     fontSize: 25,
     textAlign: "center",
     textTransform: "uppercase",
-    marginTop: 320,
+  },
+  Heading2: {
+    color: "#FFD166",
+    fontSize: 28,
+    textAlign: "center",
+    marginBottom: 20,
   },
 });
