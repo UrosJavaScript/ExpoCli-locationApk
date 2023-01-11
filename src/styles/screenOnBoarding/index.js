@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 
-const { height } = Dimensions.get("window").height;
+const { heightWindow } = Dimensions.get("window").height;
 
 export const StyleScreenOnBoarding = StyleSheet.create({
   Container: {
@@ -8,7 +8,7 @@ export const StyleScreenOnBoarding = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#073B4C",
-    height: height,
+    height: heightWindow,
   },
   Heading1: {
     color: "#FFD166",

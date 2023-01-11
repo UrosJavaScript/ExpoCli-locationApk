@@ -4,7 +4,7 @@ const { widthWindow } = Dimensions.get("window").width;
 
 export const StyleScreenLogin = StyleSheet.create({
   Container: {
-    // backgroundColor: "#073B4C",
+    backgroundColor: "#073B4C",
     flex: 1,
     padding: 20,
     justifyContent: "center",
@@ -20,7 +20,7 @@ export const StyleScreenLogin = StyleSheet.create({
     color: "#fff12a",
     fontWeight: "900",
     fontSize: 35,
-    marginBottom: 100,
+    marginBottom: 50,
     marginTop: 100,
   },
   navButton: {

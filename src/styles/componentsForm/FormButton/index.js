@@ -1,7 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 
 const { heightWindow } = Dimensions.get("window").height;
-const { widthWindow } = Dimensions.get("window").width;
 
 export const StyleFormButton = StyleSheet.create({
   buttonContainer: {

@@ -24,10 +24,7 @@ const ScreenAnim = () => {
   return (
     <>
       <View style={[StyleScreenAnim.Container]}>
-        {/* <Image
-          source={logo}
-          style={{ width: 130, height: 80, marginBottom: 10 }}
-        /> */}
+        
         <LottieView
           ref={animation}
           loop={false}
