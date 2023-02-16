@@ -1,6 +1,5 @@
 import React from "react";
-import { View, TextInput, Button } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { View, Image, TextInput } from "react-native";
 
 // style
 import { StyleFormInput } from "../../src/styles/componentsForm/FormInput";
@@ -9,7 +8,7 @@ const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
   return (
     <View style={StyleFormInput.inputContainer}>
       <View style={StyleFormInput.iconStyle}>
-        <AntDesign name={iconType} color="#073B4C" size={25} />
+        <Image style={{ height: 25, width: 25 }} source={iconType} />
       </View>
       <TextInput
         value={labelValue}

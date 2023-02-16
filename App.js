@@ -1,23 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 
 // navigation screen
 import Navigation from "./navigation";
 
-export default function App() {
-  return <Navigation />;
+// splash-screen
+import AppLoading from "expo-app-loading";
 
-  // return (
-  //   <>
-  //     <NavigationContainer>
-  //       <Stack.Navigator
-  //         initialRouteName="ScreenAnim"
-  //         screenOptions={{ headerShown: false }}
-  //       >
-  //         <Stack.Screen name="ScreenAnim" component={ScreenAnim} />
-  //         <Stack.Screen name="OnBoarding" component={OnBoarding} />
-  //         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-  //       </Stack.Navigator>
-  //     </NavigationContainer>
-  //   </>
-  // );
+// async-storage
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+// credentials context
+import { CredentialsContext } from "./components/Credentials-async";
+
+export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
+  const [storedCredentials, setStoredCredentials] = useState("");
+
+  const checkloginCredentials = () => {
+    AsyncStorage.getItem("zoomCredentials")
+      .then((result) => {
+        if (result !== null) {
+          setStoredCredentials(JSON.parse(result));
+        } else {
+          setStoredCredentials(null);
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  if (!appIsReady) {
+    return (
+      <AppLoading
+        startAsync={checkloginCredentials}
+        onFinish={() => setAppIsReady(true)}
+        onError={console.warn()}
+      />
+    );
+  }
+
+  return (
+    <CredentialsContext.Provider
+      value={{ storedCredentials, setStoredCredentials }}
+    >
+      <Navigation />
+    </CredentialsContext.Provider>
+  );
 }

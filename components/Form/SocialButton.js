@@ -1,7 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-// import { FontAwesome5 } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 // style
 import { StyleSocialButton } from "../../src/styles/componentsForm/SocialButton";
@@ -21,11 +19,11 @@ const SocialButton = ({
       {...rest}
     >
       <View style={StyleSocialButton.iconWrapper}>
-        <AntDesign
-          name={btnType}
-          style={StyleSocialButton.icon}
+       
+        <Image
+          source={btnType}
+          style={{ height: 22, width: 22 }}
           color={color}
-          size={22}
         />
       </View>
       <View style={StyleSocialButton.btnTxtWrapper}>
