@@ -31,7 +31,20 @@ const Welcome = () => {
     <>
       <Tab.Navigator
         initialRouteName="Home"
-        screenOptions={{ headerShown: false }}
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: "#073B4C",
+            // borderTopWidth: 2,
+            borderTopColor: "#2e5c83",
+            paddingBottom: 5,
+            paddingTop: 5,
+            // paddingBottom: 5,
+            height: 60,
+          },
+          tabBarActiveTintColor: "#FFD166",
+          // tabBarInactiveTintColor: "#fff",
+        }}
       >
         <Tab.Screen
           name="HomePulseScreen"

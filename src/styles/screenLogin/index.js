@@ -9,12 +9,18 @@ export const StyleScreenLogin = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
     alignItems: "center",
+    height: heightWindow,
   },
-  // Logo: {
-  //   height: 150,
-  //   width: 150,
-  //   resizeMode: "cover",
-  // },
+  LogoTop: {
+    height: 70,
+    width: 250,
+    borderWidth: 1,
+    padding: 50,
+    borderColor: "gold",
+    borderRadius: 10,
+    marginBottom: 20,
+    marginTop: 0,
+  },
   Text: {
     textTransform: "uppercase",
     color: "#fff12a",
@@ -34,6 +40,17 @@ export const StyleScreenLogin = StyleSheet.create({
     fontWeight: "500",
     color: "#fff12a",
   },
+  PasswordWrapp: {
+    position: "relative",
+    width: "100%",
+  },
+  PasswordInsideEl: {
+    position: "absolute",
+    top: 15,
+    right: 20,
+    bottom: 0,
+  },
+
   imageBackground: {
     width: widthWindow,
     height: heightWindow,

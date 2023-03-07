@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Alert, Button, Image, StyleSheet, Text, View } from "react-native";
-
+import React, { useEffect, useState } from "react";
+import { Alert, Button, StyleSheet, Text, View } from "react-native";
 import { initializeApp } from "firebase/app";
 import { getAuth, sendEmailVerification, signOut } from "firebase/auth";
 import {
   collection,
-  doc,
   getDocs,
   getFirestore,
   query,
@@ -13,22 +11,24 @@ import {
 } from "firebase/firestore";
 import { firebaseConfig } from "../firebase-config";
 
-// async-storage
-import AsyncStorage from "@react-native-async-storage/async-storage";
-// credentials context
-import { CredentialsContext } from "../components/Credentials-async";
-
 import FormButton from "../components/Form/FormButton";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../redux/store/authSlice";
 
 const Test = () => {
   const [userData, setUserData] = useState([]);
-  // Context
-  const { storedCredentials, setStoredCredentials } =
-    useContext(CredentialsContext);
 
-  // let testing = props.route.params.user.email;
-  // let logout = props.route.params.auth;
-  const { email, password } = storedCredentials;
+  const uid = useSelector((state) => state.uid);
+  const email = useSelector((state) => state.email);
+  const displayName = useSelector((state) => state.fullName);
+  // const phoneNumber = useSelector((state) => state.auth.phoneNumber);
+  // const photoURL = useSelector((state) => state.auth.photoURL);
+  const authToken = useSelector((state) => state.authToken);
+  // const token = useSelector((state) => state.auth.authToken);
+  // console.log("token TEST SCreen: ", token);
+  //console.log("samo state: ", userData);
+
+  const dispatch = useDispatch();
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -36,24 +36,17 @@ const Test = () => {
   const auth = getAuth(app);
   const db = getFirestore(app);
 
-  const clearLogin = () => {
-    AsyncStorage.removeItem("zoomCredentials")
+  const logOutUser = () => {
+    signOut(auth)
       .then(() => {
-        signOut(auth)
-          .then(() => {
-            Alert.alert("Success Logout");
-          })
-          .catch((error) => {
-            Alert.alert(error.message);
-          });
+        dispatch(logoutUser());
 
-        setStoredCredentials("");
+        Alert.alert("Success Logout");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        Alert.alert(error.message);
+      });
   };
-
-  // let text = email;
-  // let result = text?.split("@")[0];
 
   const showContent = () => {
     return (
@@ -83,7 +76,7 @@ const Test = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
 
-      // console.log("DATA: ", { ...data });
+      // console.log("DATA TEST SCREEEN: ", data);
 
       if (data) {
         return setUserData(data);
@@ -101,11 +94,9 @@ const Test = () => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>Welcome {email}</Text>
-
         <View
           style={{
-            backgroundColor: "gray",
+            // backgroundColor: "gold",
             padding: 50,
           }}
         >
@@ -113,30 +104,34 @@ const Test = () => {
             source={{ uri: userData.imgUrl }}
             style={{ width: 40, height: 40, borderRadius: 50 }}
           /> */}
+          <Text style={styles.title}>Welcome {displayName}</Text>
           <Text>Profile Information: </Text>
           <View
             style={{
               color: "#ffffff",
-              borderWidth: 1,
-              borderColor: "red",
-              padding: "10%",
+              // borderWidth: 1,
+              // borderColor: "red",
+              padding: 0,
+              width: 150,
             }}
           >
-            <Text style={{ color: "blue" }}>{userData.fullname}</Text>
+            <Text style={{ color: "white" }}>{uid}</Text>
+            <Text style={{ color: "white" }}>{email}</Text>
+            <Text style={{ color: "white" }}>{authToken}</Text>
           </View>
         </View>
 
-        <View style={{ backgroundColor: "red", padding: 20, marginTop: 100 }}>
+        <View style={{ backgroundColor: "red", padding: 20, marginTop: 20 }}>
           {auth?.currentUser?.emailVerified
             ? showContent()
             : showSendVerificationEmail()}
         </View>
         <View
           style={{
-            marginTop: 20,
+            marginTop: 5,
           }}
         >
-          <FormButton buttonTitle="Odjavi Me" onPress={clearLogin} />
+          <FormButton buttonTitle="Odjavi Me" onPress={logOutUser} />
         </View>
       </View>
     </View>
@@ -156,8 +151,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: "700",
-    color: "red",
-    paddingBottom: 10,
+    color: "gold",
+    paddingBottom: 5,
   },
   text: {
     fontSize: 20,

@@ -79,9 +79,9 @@ export default function HomePulseScreen() {
   const [pulse, setPulse] = useState([1]);
   const [listItems, setListItems] = useState(dummyArray);
 
-  // useEffect(() => {
-  //   console.log("podaci iz array: ", listItems);
-  // }, []);
+  useEffect(() => {
+    console.log("podaci iz array: ", listItems);
+  }, []);
 
   return (
     <View style={styles.container}>
