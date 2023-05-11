@@ -39,6 +39,9 @@ export const StyleScreenLogin = StyleSheet.create({
     fontSize: 18,
     fontWeight: "500",
     color: "#fff12a",
+
+    fontFamily: "Barlow",
+    fontWeight: 400,
   },
   PasswordWrapp: {
     position: "relative",

@@ -20,7 +20,7 @@ const authSlice = createSlice({
       state.authToken = action.payload.tokenUser;
 
       state.authProvider = action.payload.authProvider;
-      state.fullName = action.payload.fullName;
+      state.fullName = action.payload.fullname;
       state.email = action.payload.email;
       state.uid = action.payload.uid;
       // state.photoURL = action.payload.photoURL;

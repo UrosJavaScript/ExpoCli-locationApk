@@ -36,6 +36,7 @@ const Test = () => {
   const auth = getAuth(app);
   const db = getFirestore(app);
 
+
   const logOutUser = () => {
     signOut(auth)
       .then(() => {
@@ -71,6 +72,7 @@ const Test = () => {
   const displayUserInfo = async () => {
     try {
       const user = auth.currentUser;
+      console.log("USER: ", user);
       if (!user || !user.email) return;
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);

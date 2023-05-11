@@ -38,15 +38,20 @@ const Navigation = () => {
 
   if (isFirstLaunch === null) {
     return null;
-  } else if (isFirstLaunch === false) {
+  } else if (isFirstLaunch === true) {
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="ScreenAnim">
           {token === null ? (
             <>
               <Stack.Screen
-                name="ScreenAnimSecond"
-                component={ScreenAnimSecond}
+                name="ScreenAnim"
+                component={ScreenAnim}
+                options={{ header: () => null }}
+              />
+              <Stack.Screen
+                name="OnBoarding"
+                component={OnBoarding}
                 options={{ header: () => null }}
               />
               <Stack.Screen
@@ -54,7 +59,7 @@ const Navigation = () => {
                 component={LoginScreen}
                 // options={{ header: () => null }}
                 options={() => ({
-                  title: "ZOOM APPLICATION HEADER",
+                  title: "ZOOM APPLICATION",
                   headerTitleAlign: "center",
                   headerTitleStyle: {
                     color: "gold",
@@ -90,7 +95,7 @@ const Navigation = () => {
                 name="RegisterScreen"
                 component={RegisterScreen}
                 options={({ navigation }) => ({
-                  title: "",
+                  title: "ZOOM GUIDE",
                   headerStyle: {
                     backgroundColor: "#073B4C",
                     shadowColor: "#073B4C",
@@ -144,7 +149,7 @@ const Navigation = () => {
                 component={LoginScreen}
                 // options={{ header: () => null }}
                 options={() => ({
-                  title: "ZOOM APPLICATION HEADER",
+                  title: "ZOOM APPLICATION",
                   headerTitleAlign: "center",
                   headerTitleStyle: {
                     color: "gold",
@@ -180,7 +185,12 @@ const Navigation = () => {
                 name="RegisterScreen"
                 component={RegisterScreen}
                 options={({ navigation }) => ({
-                  title: "",
+                  title: "ZOOM GUIDE",
+                  headerTitleAlign: "center",
+                  headerTitleStyle: {
+                    color: "gold",
+                    fontSize: 22,
+                  },
                   headerStyle: {
                     backgroundColor: "#073B4C",
                     shadowColor: "#073B4C",

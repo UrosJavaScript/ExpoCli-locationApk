@@ -9,23 +9,31 @@ export const StyleScreenRegister = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#073B4C",
     height: heightWindow,
-    backgroundColor: "#073B4C",
+    padding: 20,
+  },
+  BackgroundLinear: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: "100%",
   },
   HeadingTop: {
     color: "#fff12a",
     fontSize: 25,
-    marginBottom: 5,
+    //marginBottom: 5,
     textAlign: "center",
-    textTransform: "uppercase",
-    fontWeight: "bold",
+    //fontWeight: "bold",
     fontFamily: "Barlow",
+    // fontFamily: "MoonDance",
   },
   Heading1: {
-    color: "#ffffff",
+    color: "#fff12a",
     fontSize: 18,
-    marginBottom: 10,
+    //marginBottom: 2,
     textAlign: "center",
     textTransform: "uppercase",
+    fontFamily: "MoonDance",
   },
   Heading2: {
     color: "#FFD166",
@@ -43,18 +51,18 @@ export const StyleScreenRegister = StyleSheet.create({
     right: 20,
     bottom: 0,
   },
-  ForgotButton: {
-    marginVertical: 35,
+  ToptextMargin: {
+    marginVertical: 15,
   },
-  NavButtonText: {
+  TopTextAcc: {
     fontSize: 18,
-    fontWeight: "500",
+    fontWeight: "900",
     color: "#fff12a",
   },
   BottomTextPrivate: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginVertical: 35,
+    marginVertical: 40,
     justifyContent: "center",
   },
   BottomColorTextPrivate: {

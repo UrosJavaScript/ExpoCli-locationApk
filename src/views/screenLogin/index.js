@@ -76,7 +76,9 @@ const LoginScreen = () => {
 
           try {
             const user = auth.currentUser;
-            if (!user || !user.email) return;
+            if (!user || !user.email) {
+              return;
+            }
             const q = query(
               collection(db, "users"),
               where("uid", "==", user?.uid)

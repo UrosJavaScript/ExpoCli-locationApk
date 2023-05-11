@@ -41,6 +41,7 @@ import FormButton from "../../../components/Form/FormButton";
 
 // style
 import { StyleScreenRegister } from "../../styles/screenRegister";
+import { LinearGradient } from "expo-linear-gradient";
 
 // icon
 // import image from "../../../assets/bg-login2.png";
@@ -94,7 +95,7 @@ const RegisterScreen = () => {
             // verification email
             sendEmailVerification(authCurrentUser);
 
-            const user = userCredential.user;
+            const { user } = userCredential;
             Alert.alert("Account Created!");
 
             // DATABASE ------------------
@@ -117,7 +118,9 @@ const RegisterScreen = () => {
 
               try {
                 // const user = auth.currentUser;
-                if (!authCurrentUser || !authCurrentUser.email) return;
+                if (!authCurrentUser || !authCurrentUser.email) {
+                  return;
+                }
                 const q = query(
                   collection(db, "users"),
                   where("uid", "==", authCurrentUser?.uid)
@@ -146,9 +149,15 @@ const RegisterScreen = () => {
     <>
       <KeyboardAvoidingWrapper>
         <View style={StyleScreenRegister.Container}>
+          <LinearGradient
+            // Background Linear Gradient
+            colors={["rgba(7,59,76,1) 63%", "rgba(109,130,135,1) 94%"]}
+            style={StyleScreenRegister.BackgroundLinear}
+          />
           <View>
-            <Text style={StyleScreenRegister.HeadingTop}>ZOOM GUIDE</Text>
             <Text style={StyleScreenRegister.Heading1}>Create an account</Text>
+
+            {/* <Text style={StyleScreenRegister.Heading1}>sign up</Text> */}
           </View>
 
           <View>
@@ -255,7 +264,7 @@ const RegisterScreen = () => {
               By registering, you confirm that you accept our
             </Text>
             <TouchableOpacity>
-              <Text style={{ color: "gold" }}>Terms of service</Text>
+              <Text style={{ color: "#fff12a" }}>Terms of service</Text>
             </TouchableOpacity>
             <Text style={StyleScreenRegister.BottomColorTextPrivate}>
               {" "}
@@ -273,18 +282,19 @@ const RegisterScreen = () => {
           backgroundColor="white"
         />
 
-        <SocialButton
-          buttonTitle="Sign Up with G-mail"
-          btnType={require("../../../assets/images/icons-formInput/gmail.png")}
-          color="#073B4C"
-          backgroundColor="white"
-        /> */}
+          <SocialButton
+            buttonTitle="Sign Up with G-mail"
+            btnType={require("../../../assets/images/icons-formInput/gmail.png")}
+            color="#073B4C"
+            backgroundColor="white"
+          />
+           */}
 
           <TouchableOpacity
-            style={StyleScreenRegister.ForgotButton}
+            style={StyleScreenRegister.ToptextMargin}
             onPress={() => navigation.navigate("LoginScreen")}
           >
-            <Text style={StyleScreenRegister.NavButtonText}>
+            <Text style={StyleScreenRegister.TopTextAcc}>
               Already have an account? Login
             </Text>
           </TouchableOpacity>
